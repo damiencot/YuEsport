@@ -7,6 +7,7 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import fr.nansty.yuesport.R
 import fr.nansty.yuesport.acitivty.GameActivity
 import fr.nansty.yuesport.adapters.GameAdapter
@@ -16,7 +17,10 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class GameFragment : Fragment(){
+class GameFragment : Fragment(), GameAdapter.Listener{
+    override fun onItemClick(esportWrapper: EsportWrapper) {
+        Toast.makeText(context, "You clicked: ${esportWrapper.slugName}", Toast.LENGTH_LONG).show()
+    }
 
     companion object {
         private const val API_KEY = "LlLufAuCOgGMZX4Gft13ZYkexa9eCo_iX1_cUSOxHFMaxjHk7uA"
